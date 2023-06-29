@@ -1,22 +1,17 @@
-function pascalTriangle(n) {
-  if (n <= 0) {
-    return [];
-  }
-  
-  var triangle = [[1]];
-  
-  for (var i = 1; i < n; i++) {
-    var row = [1];
-    var prevRow = triangle[i - 1];
+def pascal_triangle(n):
+    if n <= 0:
+        return []
     
-    for (var j = 1; j < i; j++) {
-      row.push(prevRow[j - 1] + prevRow[j]);
-    }
+    triangle = [[1]]
     
-    row.push(1);
-    triangle.push(row);
-  }
-  
-  return triangle;
-}
-
+    for i in range(1, n):
+        row = [1]
+        prev_row = triangle[i - 1]
+        
+        for j in range(1, i):
+            row.append(prev_row[j - 1] + prev_row[j])
+        
+        row.append(1)
+        triangle.append(row)
+    
+    return triangle
